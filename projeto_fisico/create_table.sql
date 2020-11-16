@@ -8,7 +8,7 @@ create table FUNCIONARIO (
     codigo_funcionario integer primary key,
     socio integer,
     
-    fk_cpf_pessoa varchar(11),
+    fk_cpf_pessoa varchar2(11),
     fk_codigo_supervisor integer,
     
     foreign key (fk_cpf_pessoa) references PESSOA(cpf),
@@ -55,7 +55,7 @@ create table CLIENTE (
 
     telefone integer,
 
-    fk_cpf_pessoa varchar(11),
+    fk_cpf_pessoa varchar2(11),
 
     foreign key (fk_cpf_pessoa) references PESSOA(cpf)
 );
