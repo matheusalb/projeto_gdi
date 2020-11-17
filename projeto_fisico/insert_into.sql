@@ -62,16 +62,16 @@ insert into CLIENTE (codigo_cliente,rua,bairro,complemento,numero,telefone,fk_cp
 
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('789869305923','Sujinho','Ceara','Água Fria','casa',25,1,0,1,0);
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('400636500899','Pé pra Fora','Rua 10','Alto J Bonifácio','casa',145,0,0,1,0);
-insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('113737611616','Galinheiro','Belo Horizonte','Várzea','apt',120,0,1,0,1);
+insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('113737611616','Galinheiro','Belo Horizonte','Várzea','galeria',120,0,1,0,1);
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('108728018627','Facebuguer','Das Flores','Alto do Mandu','casa',3,0,0,1,0);
-insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('203657147189','O Senhor dos Pasteis','Sergipe','Bomba do Hemetério','apt',78,0,0,0,0);
+insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('203657147189','O Senhor dos Pasteis','Sergipe','Bomba do Hemetério','galeria',78,0,0,0,0);
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('143549522292','Bar dos Otários','Vitoria','Bongi','casa',144,1,0,0,0);
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('662122880583','Demorô','José Bonifácio','Campo Grande','casa',117,0,1,1,0);
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('593425841607','Pobr’s','Pernambuco','Casa Amarela','casa',66,0,0,1,1);
-insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('140482142037','Facefood','Piauí','Casa Forte','apt',26,0,0,1,1);
+insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('140482142037','Facefood','Piauí','Casa Forte','galeria',26,0,0,1,1);
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('992387009456','Churrassic Park','Vinte e Três','Santo Amaro','casa',88,0,0,0,1);
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('143221201534','Suburbioway','Rua 9','Santo Antônio','casa',20,0,0,1,0);
-insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('904681499161','Bar da Mosca','Mato Grosso','São José','apt',45,0,0,0,0);
-insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('593435870163','Manguaça','Santa Maria','Várzea','apt',149,1,0,0,0);
+insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('904681499161','Bar da Mosca','Mato Grosso','São José','galeria',45,0,0,0,0);
+insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('593435870163','Manguaça','Santa Maria','Várzea','galeria',149,1,0,0,0);
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('420901186827','Gato Doido','Dom Pedro II','Vasco da Gama','casa',26,1,0,0,0);
-insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('657842398722','Pai','Primeiro de Maio','Campo Grande','apt',15,0,1,1,1);
+insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('657842398722','Pai','Primeiro de Maio','Campo Grande','galeria',15,0,1,1,1);
