@@ -39,7 +39,6 @@ insert into ENTREGADOR (codigo_entregador, fk_cpf_pessoa) values (1,'22831798477
 insert into ENTREGADOR (codigo_entregador, fk_cpf_pessoa) values (2,'86908459173');
 insert into ENTREGADOR (codigo_entregador, fk_cpf_pessoa) values (3,'19374182477');
 
-
 insert into CLIENTE (codigo_cliente,rua,bairro,complemento,numero,telefone,fk_cpf_pessoa) values (0,'Rua Ladrilhada','Água Fria','casa',210,921455919,31181980767);
 insert into CLIENTE (codigo_cliente,rua,bairro,complemento,numero,telefone,fk_cpf_pessoa) values (1,'Quatorze','Alto J Bonifácio','casa',239,993925052,16488774610);
 insert into CLIENTE (codigo_cliente,rua,bairro,complemento,numero,telefone,fk_cpf_pessoa) values (2,'Sao Francisco','Alto José do Pinho','apt',7,929454644,19064102185);
@@ -59,7 +58,6 @@ insert into CLIENTE (codigo_cliente,rua,bairro,complemento,numero,telefone,fk_cp
 insert into CLIENTE (codigo_cliente,rua,bairro,complemento,numero,telefone,fk_cpf_pessoa) values (16,'Sao Sebastiao','Bomba do Hemetério','apt',110,983055359,94418755363);
 insert into CLIENTE (codigo_cliente,rua,bairro,complemento,numero,telefone,fk_cpf_pessoa) values (17,'Cachorro','Bomba do Hemetério','casa',202,977827929,59545223684);
 
-
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('789869305923','Sujinho','Ceara','Água Fria','casa',25,1,0,1,0);
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('400636500899','Pé pra Fora','Rua 10','Alto J Bonifácio','casa',145,0,0,1,0);
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('113737611616','Galinheiro','Belo Horizonte','Várzea','galeria',120,0,1,0,1);
@@ -75,3 +73,81 @@ insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeter
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('593435870163','Manguaça','Santa Maria','Várzea','galeria',149,1,0,0,0);
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('420901186827','Gato Doido','Dom Pedro II','Vasco da Gama','casa',26,1,0,0,0);
 insert into ESTABELECIMENTO (cnpj,nome,rua,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) values ('657842398722','Pai','Primeiro de Maio','Campo Grande','galeria',15,0,1,1,1);
+
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('958796967','911299867','789869305923');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('983818928','965181949','400636500899');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('927385212','978802939','113737611616');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('982495363','981534334','108728018627');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('930607143','992324987','203657147189');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('967648714','934406938','143549522292');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('928612889','923938057','662122880583');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('940569432','910161890','593425841607');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('938404437','924676317','140482142037');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('932791920','936695555','992387009456');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('926746504','911199848','143221201534');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('900130878','952360483','904681499161');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('902019428','988689301','593435870163');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('931478118','939609238','420901186827');
+insert into TELEFONE_ESTABELECIMENTO (telefone_1, telefone_2, fk_cnpj_estabelecimento) values ('952041041','941936007','657842398722');
+
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (0,'789869305923');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (1,'400636500899');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (2,'113737611616');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (3,'108728018627');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (4,'203657147189');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (5,'143549522292');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (6,'662122880583');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (7,'593425841607');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (8,'140482142037');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (9,'992387009456');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (10,'143221201534');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (11,'904681499161');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (12,'593435870163');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (13,'420901186827');
+insert into CARDAPIO (id_cardapio, fk_cnpj_estabelecimento) values (14,'657842398722');
+
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (0,'Maçã',27.2,0,1,0,0);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (1,'Abacate',107.9,0,1,0,0);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (2,'Banana',79,0,1,0,0);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (3,'Mirtilo',114.3,0,1,0,1);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (4,'Laranja',99.8,0,1,0,1);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (5,'Morango',42.1,0,1,0,1);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (6,'Guardanapo',59.4,0,0,1,2);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (7,'Hashi',84.3,0,0,1,2);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (8,'Carne bovina',44.7,0,1,0,2);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (9,'Suco de laranja',22.7,1,0,0,3);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (10,'Cordeiro',55.8,0,1,0,3);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (11,'Amêndoas',20.3,0,1,0,3);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (12,'Sementes de Chia',118.7,0,1,0,4);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (13,'Cocos',85,0,1,0,4);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (14,'Macadâmia',106.6,0,1,0,4);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (15,'Nozes',68.5,0,1,0,5);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (16,'Alho',44.7,0,1,0,5);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (17,'Couve',89.2,0,1,0,5);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (18,'Pepsi',94.2,1,0,0,6);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (19,'Tomates',99.6,0,1,0,6);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (20,'Cebola caramelizada',81,0,1,0,6);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (21,'Salmão',67.1,0,1,0,7);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (22,'Sardinhas',109.3,0,1,0,7);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (23,'Crustáceos',45.3,0,1,0,7);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (24,'Coca cola',112.1,1,0,0,8);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (25,'Truta',74.3,0,1,0,8);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (26,'Atum',25.6,0,1,0,8);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (27,'Talher extra',86,0,0,1,9);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (28,'Aveia',32.2,0,1,0,9);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (29,'Quinoa',67.2,0,1,0,9);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (30,'Pão Ezequiel',108.7,0,1,0,10);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (31,'Pães Caseiros',103,0,1,0,10);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (32,'Feijão verde',37.7,0,1,0,10);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (33,'Feijão',40.4,0,1,0,11);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (34,'Lentilhas',55.2,0,1,0,11);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (35,'Batata frita',39.2,0,1,0,11);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (36,'Pastel',10.6,0,1,0,12);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (37,'Coxinha',12.1,0,1,0,12);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (38,'Sonho de Valsa',35.1,0,1,0,12);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (39,'Amandita',23.7,0,1,0,13);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (40,'Baconzitos',49.3,0,1,0,13);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (41,'Pururuca',86.1,0,1,0,13);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (42,'Doritos',98,0,1,0,14);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (43,'Pringles',29,0,1,0,14);
+insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (44,'Passatempo',106.4,0,1,0,14);
