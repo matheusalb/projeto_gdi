@@ -34,6 +34,14 @@ insert into FUNCIONARIO (codigo_funcionario,socio,fk_cpf_pessoa,fk_codigo_superv
 insert into FUNCIONARIO (codigo_funcionario,socio,fk_cpf_pessoa,fk_codigo_supervisor) values (14,0,'52362568727',11);
 insert into FUNCIONARIO (codigo_funcionario,socio,fk_cpf_pessoa,fk_codigo_supervisor) values (15,0,'34671626240',11);
 
+insert into MARKETING (fk_codigo_funcionario) values (13);
+insert into MARKETING (fk_codigo_funcionario) values (14);
+insert into OP (fk_codigo_funcionario) values (14);
+insert into BUSINESS (fk_codigo_funcionario) values (3);
+insert into DEV (fk_codigo_funcionario) values (6); -- socio dev
+insert into DEV (fk_codigo_funcionario) values (7);
+insert into DESIGNER (fk_codigo_funcionario) values (2);
+
 insert into ENTREGADOR (codigo_entregador, fk_cpf_pessoa) values (0,'19064102185');
 insert into ENTREGADOR (codigo_entregador, fk_cpf_pessoa) values (1,'22831798477');
 insert into ENTREGADOR (codigo_entregador, fk_cpf_pessoa) values (2,'86908459173');
@@ -152,7 +160,6 @@ insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio
 insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (43,'Pringles',29,0,1,0,14);
 insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (44,'Passatempo',106.4,0,1,0,14);
 
-
 insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (0,1,1,'789869305923',3);
 insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (1,0,12,'400636500899',3);
 insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (2,0,16,'113737611616',2);
@@ -182,10 +189,3 @@ insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabele
 insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (26,0,5,'904681499161',3);
 insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (27,1,8,'593435870163',1);
 insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (28,0,0,'420901186827',0);
-
-insert into MARKETING (fk_codigo_funcionario) values (13);
-insert into OP (fk_codigo_funcionario) values (14);
-insert into BUSINESS (fk_codigo_funcionario) values (3);
-insert into DEV (fk_codigo_funcionario) values (6);
-insert into DEV (fk_codigo_funcionario) values (7);
-insert into DESIGNER (fk_codigo_funcionario) values (2);
