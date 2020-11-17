@@ -276,4 +276,4 @@ insert into ITEM_COMPRA (fk_id_item,fk_id_compra) values (37,27);
 insert into ITEM_COMPRA (fk_id_item,fk_id_compra) values (38,27);
 insert into ITEM_COMPRA (fk_id_item,fk_id_compra) values (39,28);
 insert into ITEM_COMPRA (fk_id_item,fk_id_compra) values (40,28);
-insert into ITEM_COMPRA (fk_id_item,fk_id_compra) values (41,28)
+insert into ITEM_COMPRA (fk_id_item,fk_id_compra) values (41,28);
