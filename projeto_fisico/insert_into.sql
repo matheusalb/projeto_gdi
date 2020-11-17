@@ -182,3 +182,10 @@ insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabele
 insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (26,0,5,'904681499161',3);
 insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (27,1,8,'593435870163',1);
 insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (28,0,0,'420901186827',0);
+
+insert into MARKETING (fk_codigo_funcionario) values (13);
+insert into OP (fk_codigo_funcionario) values (14);
+insert into BUSINESS (fk_codigo_funcionario) values (3);
+insert into DEV (fk_codigo_funcionario) values (6);
+insert into DEV (fk_codigo_funcionario) values (7);
+insert into DESIGNER (fk_codigo_funcionario) values (2);
