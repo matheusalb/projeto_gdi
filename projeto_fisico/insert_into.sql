@@ -151,3 +151,34 @@ insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio
 insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (42,'Doritos',98,0,1,0,14);
 insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (43,'Pringles',29,0,1,0,14);
 insert into ITEM (id_item,nome_item,preco,bebida,comida,utensilio,fk_id_cardapio) values (44,'Passatempo',106.4,0,1,0,14);
+
+
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (0,1,1,'789869305923',3);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (1,0,12,'400636500899',3);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (2,0,16,'113737611616',2);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (3,0,12,'108728018627',0);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (4,1,14,'203657147189',0);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (5,0,0,'143549522292',2);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (6,1,4,'662122880583',3);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (7,1,11,'593425841607',3);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (8,0,15,'140482142037',2);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (9,0,3,'992387009456',3);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (10,0,0,'143221201534',2);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (11,0,14,'904681499161',2);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (12,1,3,'593435870163',1);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (13,1,0,'420901186827',1);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (14,1,9,'657842398722',1);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (15,0,4,'789869305923',2);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (16,0,16,'400636500899',3);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (17,1,9,'113737611616',2);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (18,1,0,'108728018627',2);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (19,0,16,'203657147189',3);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (20,0,9,'143549522292',3);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (21,0,12,'662122880583',3);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (22,1,8,'593425841607',0);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (23,0,2,'140482142037',3);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (24,1,4,'992387009456',2);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (25,1,14,'143221201534',2);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (26,0,5,'904681499161',3);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (27,1,8,'593435870163',1);
+insert into COMPRA (id_compra,forma_pagamento,fk_codigo_cliente,fk_cnpj_estabelecimento,fk_codigo_entregador) values (28,0,0,'420901186827',0);

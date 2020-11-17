@@ -97,13 +97,13 @@ create table COMPRA (
 
     forma_pagamento integer, -- boolean
 
-    cliente integer,
-    estabelecimento varchar2(14),
-    entregador integer,
+    fk_codigo_cliente integer,
+    fk_cnpj_estabelecimento varchar2(14),
+    fk_codigo_entregador integer,
 
-    foreign key (estabelecimento) references ESTABELECIMENTO(cnpj),
-    foreign key (cliente) references CLIENTE(codigo_cliente),
-    foreign key (entregador) references ENTREGADOR(codigo_entregador)
+    foreign key (fk_cnpj_estabelecimento) references ESTABELECIMENTO(cnpj),
+    foreign key (fk_codigo_cliente) references CLIENTE(codigo_cliente),
+    foreign key (fk_codigo_entregador) references ENTREGADOR(codigo_entregador)
 );
 
 create table CARDAPIO (
