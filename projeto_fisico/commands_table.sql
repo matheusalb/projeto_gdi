@@ -1,17 +1,17 @@
 -- Selecionar todos os dados de uma tabela:
-
+-- σ(PESSOA)
 SELECT * FROM PESSOA;
 
 -- Selecionar um subconjunto de atributos de uma tabela:
-
+-- π codigo_funcionario, fk_cpf_pessoa(FUNCIONARIO),
 SELECT codigo_funcionario, fk_cpf_pessoa FROM FUNCIONARIO;
 
 -- Selecionar dados de uma tabela mediante alguma condição:
-
+-- σ bar=1(ESTABELECIMENTO)
 SELECT  * FROM ESTABELECIMENTO WHERE bar=1;
 
 -- Realizar seleção de dados sem apresentar duplicadas:
- 
+
 SELECT DISTINCT idade FROM PESSOA;
 
 -- Realizar consulta de seleção-projeção-junção:
