@@ -1,12 +1,12 @@
-/*
-SÍMBOLOS:
-- Seleção: σ
-- Projeção: π
-- Junção: ⋈
-- Produto cartesiano: x
-- União: ∪
-- renomear: ρ
-*/
+-- SÍMBOLOS:
+-- - Seleção: σ
+-- - Projeção: π
+-- - Junção: ⋈
+-- - Produto cartesiano: x
+-- - União: ∪
+-- - renomear: ρ
+
+USE ifood
 
 -- Selecionar todos os dados de uma tabela:
 -- σ(pessoa)
@@ -31,14 +31,14 @@ SELECT nome FROM pessoa, funcionario WHERE fk_codigo_supervisor=0 AND cpf=fk_cpf
 -- Atribuir “apelidos”:
 /*
 
-ρ P (nome_pessoa,idade_pessoa,cpf) (pessoa)
-ρ C (telefone_cliente,codigo_cliente,rua,bairro,complemento,numero,fk_cpf_pessoa) (cliente)
-σ bairro='Casa Amarela' (C) ⋈ fk_cpf_pessoa=cpf (P)
+ρ p (nome_pessoa,idade_pessoa,cpf) (pessoa)
+ρ c (telefone_cliente,codigo_cliente,rua,bairro,complemento,numero,fk_cpf_pessoa) (cliente)
+σ bairro='Casa Amarela' (c) ⋈ fk_cpf_pessoa=cpf (p)
 
 */
-SELECT P.nome AS nome_pessoa, P.idade AS idade_pessoa, C.telefone AS telefone_cliente
-FROM pessoa AS P, cliente AS C 
-WHERE C.bairro='Casa Amarela' AND P.cpf=C.fk_cpf_pessoa;
+SELECT p.nome AS nome_pessoa, p.idade AS idade_pessoa, c.telefone AS telefone_cliente
+FROM ifood.pessoa AS p, ifood.cliente AS c 
+WHERE c.bairro='Casa Amarela' AND p.cpf=C.fk_cpf_pessoa;
 
 -- Aplicar união:
 /*
@@ -46,7 +46,7 @@ PESSOA_FUNC = π nome ( (σ idade=65 (pessoa)) ⋈ cpf=fk_cpf_pessoa (funcionari
 PESSOA_CLIENTE = π nome ( (σ idade=65 (pessoa)) ⋈ cpf=fk_cpf_pessoa (cliente) )
 FUNC_CLENTE = PESSOA_FUNC ∪ PESSOA_CLIENTE
 */
-SELECT nome FROM pessoa, funcionario WHERE idade=65 AND cpf=fk_cpf_pessoa
+SELECT nome FROM ifoode.pessoa, ifood.funcionario WHERE idade=65 AND cpf=fk_cpf_pessoa
 UNION
 SELECT nome FROM pessoa, cliente WHERE idade=65 AND cpf=fk_cpf_pessoa;
 
@@ -72,24 +72,24 @@ SELECT cpf, nome FROM pessoa WHERE cpf NOT IN (SELECT fk_cpf_pessoa AS cpf_pesso
 
 -- Aplicar produto cartesiano:
 /*
-ρ C (cliente)
-ρ E (cnpj,nome_estabelecimento,rua_estabelecimento,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) (estabelecimento)
+ρ c (cliente)
+ρ e (cnpj,nome_estabelecimento,rua_estabelecimento,bairro,complemento,numero,bar,cafeteria,lanchonete,restaurante) (estabelecimento)
 
-ESTAB_CLIENTE = E x C
+ESTAB_CLIENTE = e x c
 EST_CLI_RUA = σ rua=rua_estabelecimento (ESTAB_CLIENTE)
 RESULTADO = π codigo_cliente,nome_estabelecimento (EST_CLI_RUA)
 */
-SELECT C.codigo_cliente, E.nome AS nome_estabelecimento FROM estabelecimento AS E CROSS JOIN cliente AS C ON C.rua=E.rua;
+SELECT c.codigo_cliente, e.nome AS nome_estabelecimento FROM estabelecimento AS e CROSS JOIN cliente AS c ON c.rua=e.rua;
 
 -- Realizar seleção sob condição que envolva outra seleção
 /*
-ρ I (item)
-ρ IC (item_compra)
-COMPRADO_ITEM = (I) ⋈ id_item=fk_id_item (IC)
+ρ i (item)
+ρ ic (item_compra)
+COMPRADO_ITEM = (i) ⋈ id_item=fk_id_item (ic)
 RESULTADO = π nome_item,preco (COMPRADO_ITEM)
 */
-SELECT nome_item, preco FROM item AS I
-WHERE EXISTS(SELECT * FROM item_compra AS IC WHERE I.id_item=IC.fk_id_item);
+SELECT nome_item, preco FROM item AS i
+WHERE EXISTS(SELECT * FROM item_compra AS ic WHERE i.id_item=ic.fk_id_item);
 
 -- Consultar valores de atributos que iniciem por algum termo
 /*
@@ -120,26 +120,20 @@ RESULTADO = (bairro) γ (codigo_cliente) (cliente)
 
 Obs: γ = [gama] => operador estendido da Algebra Relacional
 */
-SELECT codigo_cliente FROM cliente GROUP BY bairro;
+SELECT bairro, COUNT(codigo_cliente) AS 'num_clientes'  FROM cliente GROUP BY bairro;
+
 
 -- criar regra apenas para consultas do banco criado
-SET @privileges = "SELECT";
-SET @database_table = "ifood.*";
-SET @base_grant_1 = CONCAT("GRANT ", @privileges, " ON ", @database_table, " TO ");
+SET @base_grant_1 = "GRANT SELECT ON *.* TO ";
 
 -- criar regra para execução de comandos DML e DQL
-SET @privileges = "INSERT, UPDATE, DELETE, SELECT";
-SET @database_table = "*.*";
-SET @base_grant_2 = CONCAT("GRANT ", @privileges, " ON ", @database_table, " TO ");
-PREPARE grant_stmt_2 FROM @grant_2;
+SET @base_grant_2 = "GRANT INSERT, UPDATE, DELETE, SELECT ON *.* TO ";
 
 -- criar regra para execução de comandos DDL
-SET @privileges = "CREATE, ALTER, DROP, TRUNCATE, DESC";
-SET @database_table = "*.*";
-SET @base_grant_3 = CONCAT("GRANT ", @privileges, " ON ", @database_table, " TO ");
-PREPARE grant_stmt_3 FROM @grant_3;
+SET @base_grant_3 = "GRANT CREATE, DROP, ALTER ON *.* TO ";
 
 -- criar usuário que possua a regra padrão para consulta (criada anteriormente)
+DROP USER IF EXISTS 'mvca'@'localhost';
 CREATE USER 'mvca'@'localhost' IDENTIFIED BY '#1';
 SET @grant_1 = CONCAT(@base_grant_1, " 'mvca'@'localhost'");
 PREPARE grant_stmt_1 FROM @grant_1;
@@ -147,6 +141,7 @@ EXECUTE grant_stmt_1;
 DEALLOCATE PREPARE grant_stmt_1;
 
 -- criar usuário que possua a regra padrão para comandos DML e DQL (criada anteriormente)
+DROP USER IF EXISTS 'tsa3'@'localhost';
 CREATE USER 'tsa3'@'localhost' IDENTIFIED BY '#2';
 SET @grant_2 = CONCAT(@base_grant_2, " 'tsa3'@'localhost'");
 PREPARE grant_stmt_2 FROM @grant_2;
@@ -154,6 +149,7 @@ EXECUTE grant_stmt_2;
 DEALLOCATE PREPARE grant_stmt_2;
 
 -- criar usuário que possua a regra padrão para comandos DDL (criada anteriormente)
+DROP USER IF EXISTS 'nss2'@'localhost';
 CREATE USER 'nss2'@'localhost' IDENTIFIED BY '#3';
 SET @grant_3 = CONCAT(@base_grant_3, " 'nss2'@'localhost'");
 PREPARE grant_stmt_3 FROM @grant_3;
@@ -163,4 +159,4 @@ DEALLOCATE PREPARE grant_stmt_3;
 -- criar uma transação única
 -- criar uma view a partir de mais de uma tabela
 -- criar uma regra para consulta apenas na visualização criada
--- criar usuário que possua a regra padrão para consulta da view (criadas anteriormente)
+-- criar usuário que possua a regra padrão para consulta da view (criadas anteriormente) 

@@ -15,9 +15,9 @@ O script `populte_tables.sql` carrega as tuplas nas tabelas do banco de dados if
 - Ação de disparo referencial. **(done)**
 - Cada tabela com ao menos 3 tuplas. **(done)**
 
-## 3. Commands
+## 3. Operations
 
-O script `commands.sql` executa as procedimentos listadas a seguir:
+O script `operations.sql` executa as operações listadas a seguir:
 
 >**OBS:** O script contém comentários com as descrições das operações utilizando a de álgebra relacional.
 
