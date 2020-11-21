@@ -1,4 +1,3 @@
-DROP SCHEMA IF EXISTS ifood;
 CREATE SCHEMA ifood;
 USE ifood;
 
