@@ -12,7 +12,7 @@ O script `populte_tables.sql` carrega as tuplas nas tabelas do banco de dados if
 
 - Valor padrão para atributo criado.
 - Validação de dados a serem inseridos.
-- Ação de disparo referencial. **(done)**
+- Ação de disparo referencial.
 - Cada tabela com ao menos 3 tuplas. **(done)**
 
 ## 3. Operations
@@ -42,7 +42,7 @@ O script `operations.sql` executa as operações listadas a seguir:
 - criar usuário que possua a regra padrão para consulta (criada anteriormente). **(done)**
 - criar usuário que possua a regra padrão para comandos DML e DQL (criada anteriormente). **(done)**
 - criar usuário que possua a regra padrão para comandos DDL (criada anteriormente). **(done)**
-- criar uma transação única.
-- criar uma view a partir de mais de uma tabela.
-- criar uma regra para consulta apenas na visualização criada.
-- criar usuário que possua a regra padrão para consulta da view (criadas anteriormente).
+- criar uma transação única.  **(done)**
+- criar uma view a partir de mais de uma tabela.  **(done)**
+- criar uma regra para consulta apenas na visualização criada.  **(done)**
+- criar usuário que possua a regra padrão para consulta da view (criadas anteriormente).  **(done)**

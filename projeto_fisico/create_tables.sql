@@ -1,6 +1,6 @@
 DROP SCHEMA IF EXISTS ifood;
 CREATE SCHEMA ifood;
-USE ifood
+USE ifood;
 
 CREATE TABLE pessoa (
     cpf VARCHAR(11) PRIMARY KEY,

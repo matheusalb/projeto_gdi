@@ -6,7 +6,7 @@
 -- - União: ∪
 -- - renomear: ρ
 
-USE ifood
+USE ifood;
 
 -- Selecionar todos os dados de uma tabela:
 -- σ(pessoa)
@@ -124,39 +124,59 @@ SELECT bairro, COUNT(codigo_cliente) AS 'num_clientes'  FROM cliente GROUP BY ba
 
 
 -- criar regra apenas para consultas do banco criado
-SET @base_grant_1 = "GRANT SELECT ON *.* TO ";
+DROP ROLE IF EXISTS select_ifood;
+CREATE ROLE select_ifood;
+GRANT SELECT ON ifood.* TO 'select_ifood';
 
 -- criar regra para execução de comandos DML e DQL
-SET @base_grant_2 = "GRANT INSERT, UPDATE, DELETE, SELECT ON *.* TO ";
+DROP ROLE IF EXISTS cmds_dml_dql;
+CREATE ROLE cmds_dml_dql;
+GRANT INSERT, UPDATE, DELETE, SELECT ON *.* TO 'cmds_dml_dql';
 
 -- criar regra para execução de comandos DDL
-SET @base_grant_3 = "GRANT CREATE, DROP, ALTER ON *.* TO ";
+DROP ROLE IF EXISTS cmds_ddl;
+CREATE ROLE cmds_ddl;
+GRANT CREATE, DROP, ALTER ON *.* TO 'cmds_ddl';
 
 -- criar usuário que possua a regra padrão para consulta (criada anteriormente)
 DROP USER IF EXISTS 'mvca'@'localhost';
 CREATE USER 'mvca'@'localhost' IDENTIFIED BY '#1';
-SET @grant_1 = CONCAT(@base_grant_1, " 'mvca'@'localhost'");
-PREPARE grant_stmt_1 FROM @grant_1;
-EXECUTE grant_stmt_1;
-DEALLOCATE PREPARE grant_stmt_1;
+GRANT 'select_ifood' TO 'mvca'@'localhost';
+SET DEFAULT ROLE 'select_ifood' TO 'mvca'@'localhost';
 
 -- criar usuário que possua a regra padrão para comandos DML e DQL (criada anteriormente)
 DROP USER IF EXISTS 'tsa3'@'localhost';
 CREATE USER 'tsa3'@'localhost' IDENTIFIED BY '#2';
-SET @grant_2 = CONCAT(@base_grant_2, " 'tsa3'@'localhost'");
-PREPARE grant_stmt_2 FROM @grant_2;
-EXECUTE grant_stmt_2;
-DEALLOCATE PREPARE grant_stmt_2;
+GRANT 'cmds_dml_dql' TO 'tsa3'@'localhost';
+SET DEFAULT ROLE 'cmds_dml_dql' TO 'tsa3'@'localhost';
 
 -- criar usuário que possua a regra padrão para comandos DDL (criada anteriormente)
 DROP USER IF EXISTS 'nss2'@'localhost';
 CREATE USER 'nss2'@'localhost' IDENTIFIED BY '#3';
-SET @grant_3 = CONCAT(@base_grant_3, " 'nss2'@'localhost'");
-PREPARE grant_stmt_3 FROM @grant_3;
-EXECUTE grant_stmt_3;
-DEALLOCATE PREPARE grant_stmt_3;
+GRANT 'cmds_ddl' TO 'nss2'@'localhost';
+SET DEFAULT ROLE 'cmds_ddl' TO 'nss2'@'localhost';
 
 -- criar uma transação única
--- criar uma view a partir de mais de uma tabela
--- criar uma regra para consulta apenas na visualização criada
--- criar usuário que possua a regra padrão para consulta da view (criadas anteriormente) 
+START TRANSACTION;
+UPDATE item
+SET preco = preco - 2.0
+WHERE id_item = 0;
+COMMIT;
+
+-- -- criar uma view a partir de mais de uma tabela
+DROP VIEW IF EXISTS view_items_comprados_estabelecimentos;
+CREATE VIEW view_items_comprados_estabelecimentos AS
+SELECT c.id_compra, e.cnpj, i.nome_item, i.preco
+FROM compra AS c, estabelecimento AS e, cardapio AS cp, item AS i
+WHERE e.cnpj = c.fk_cnpj_estabelecimento AND c.fk_cnpj_estabelecimento = cp.fk_cnpj_estabelecimento AND i.fk_id_cardapio = cp.id_cardapio;
+
+-- -- criar uma regra para consulta apenas na visualização criada
+DROP ROLE IF EXISTS select_view;
+CREATE ROLE select_view;
+GRANT SELECT ON ifood.view_items_comprados_estabelecimentos TO 'select_view';
+
+-- -- criar usuário que possua a regra padrão para consulta da view (criadas anteriormente) 
+DROP USER IF EXISTS 'lgoq'@'localhost';
+CREATE USER 'lgoq'@'localhost' IDENTIFIED BY '#4';
+GRANT 'select_view' TO 'lgoq'@'localhost';
+SET DEFAULT ROLE 'select_view' TO 'lgoq'@'localhost';
