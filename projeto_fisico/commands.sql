@@ -123,4 +123,44 @@ Obs: γ = [gama] => operador estendido da Algebra Relacional
 SELECT codigo_cliente FROM cliente GROUP BY bairro;
 
 -- criar regra apenas para consultas do banco criado
-GRANT SELECT ON SCHEMA ifood TO mvca;
+SET @privileges = "SELECT";
+SET @database_table = "ifood.*";
+SET @base_grant_1 = CONCAT("GRANT ", @privileges, " ON ", @database_table, " TO ");
+
+-- criar regra para execução de comandos DML e DQL
+SET @privileges = "INSERT, UPDATE, DELETE, SELECT";
+SET @database_table = "*.*";
+SET @base_grant_2 = CONCAT("GRANT ", @privileges, " ON ", @database_table, " TO ");
+PREPARE grant_stmt_2 FROM @grant_2;
+
+-- criar regra para execução de comandos DDL
+SET @privileges = "CREATE, ALTER, DROP, TRUNCATE, DESC";
+SET @database_table = "*.*";
+SET @base_grant_3 = CONCAT("GRANT ", @privileges, " ON ", @database_table, " TO ");
+PREPARE grant_stmt_3 FROM @grant_3;
+
+-- criar usuário que possua a regra padrão para consulta (criada anteriormente)
+CREATE USER 'mvca'@'localhost' IDENTIFIED BY '#1';
+SET @grant_1 = CONCAT(@base_grant_1, " 'mvca'@'localhost'");
+PREPARE grant_stmt_1 FROM @grant_1;
+EXECUTE grant_stmt_1;
+DEALLOCATE PREPARE grant_stmt_1;
+
+-- criar usuário que possua a regra padrão para comandos DML e DQL (criada anteriormente)
+CREATE USER 'tsa3'@'localhost' IDENTIFIED BY '#2';
+SET @grant_2 = CONCAT(@base_grant_2, " 'tsa3'@'localhost'");
+PREPARE grant_stmt_2 FROM @grant_2;
+EXECUTE grant_stmt_2;
+DEALLOCATE PREPARE grant_stmt_2;
+
+-- criar usuário que possua a regra padrão para comandos DDL (criada anteriormente)
+CREATE USER 'nss2'@'localhost' IDENTIFIED BY '#3';
+SET @grant_3 = CONCAT(@base_grant_3, " 'nss2'@'localhost'");
+PREPARE grant_stmt_3 FROM @grant_3;
+EXECUTE grant_stmt_3;
+DEALLOCATE PREPARE grant_stmt_3;
+
+-- criar uma transação única
+-- criar uma view a partir de mais de uma tabela
+-- criar uma regra para consulta apenas na visualização criada
+-- criar usuário que possua a regra padrão para consulta da view (criadas anteriormente)
