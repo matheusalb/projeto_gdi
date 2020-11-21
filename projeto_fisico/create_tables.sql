@@ -123,11 +123,7 @@ CREATE TABLE item (
 
     nome_item VARCHAR(20),
     preco decimal (10,2), -- 2 digitos decimais
-
-    bebida INTEGER,
-    comida INTEGER,
-    utensilio INTEGER,
-
+    
     fk_id_cardapio INTEGER,
 
     FOREIGN KEY(fk_id_cardapio) REFERENCES cardapio(id_cardapio)
