@@ -12,7 +12,7 @@ O script `populte_tables.sql` carrega as tuplas nas tabelas do banco de dados if
 
 - Valor padrão para atributo criado.
 - Validação de dados a serem inseridos.
-- Ação de disparo referencial.
+- Ação de disparo referencial. **(done)**
 - Cada tabela com ao menos 3 tuplas. **(done)**
 
 ## 3. Operations
