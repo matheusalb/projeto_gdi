@@ -2,15 +2,16 @@ DROP SCHEMA IF EXISTS ifood;
 CREATE SCHEMA ifood;
 USE ifood;
 
+
 CREATE TABLE pessoa (
-    cpf VARCHAR(11) PRIMARY KEY,
-    nome VARCHAR(20),
-    idade INTEGER
+    cpf VARCHAR(11) DEFAULT '' PRIMARY KEY,
+    nome VARCHAR(20) DEFAULT '',
+    idade INTEGER DEFAULT -1
 );
 
 CREATE TABLE funcionario (
-    codigo_funcionario INTEGER PRIMARY KEY,
-    socio INTEGER,
+    codigo_funcionario INTEGER DEFAULT -1 PRIMARY KEY,
+    socio BOOLEAN DEFAULT FALSE,
     
     fk_cpf_pessoa VARCHAR(11),
     fk_codigo_supervisor INTEGER,
@@ -57,14 +58,14 @@ CREATE TABLE designer (
 );
 
 CREATE TABLE cliente (
-    codigo_cliente INTEGER PRIMARY KEY,
+    codigo_cliente INTEGER DEFAULT -1 PRIMARY KEY,
 
-    rua VARCHAR(20),
-    bairro VARCHAR(20),
-    complemento VARCHAR(20),
-    numero INTEGER,
+    rua VARCHAR(20) DEFAULT '',
+    bairro VARCHAR(20) DEFAULT '',
+    complemento VARCHAR(20) DEFAULT '',
+    numero INTEGER DEFAULT -1,
 
-    telefone INTEGER,
+    telefone INTEGER DEFAULT -1,
 
     fk_cpf_pessoa VARCHAR(11),
 
@@ -73,22 +74,22 @@ CREATE TABLE cliente (
 );
 
 CREATE TABLE estabelecimento (
-    cnpj VARCHAR(14) PRIMARY KEY,
-    nome VARCHAR(20),
+    cnpj VARCHAR(14) DEFAULT '' PRIMARY KEY,
+    nome VARCHAR(20) DEFAULT '',
 
-    rua VARCHAR(20),
-    bairro VARCHAR(20),
-    complemento VARCHAR(20),
-    numero INTEGER,
+    rua VARCHAR(20) DEFAULT '',
+    bairro VARCHAR(20) DEFAULT '',
+    complemento VARCHAR(20) DEFAULT '',
+    numero INTEGER DEFAULT -1,
 
-    bar INTEGER,
-    cafeteria INTEGER,
-    lanchonete INTEGER,
-    restaurante INTEGER
+    bar BOOLEAN DEFAULT FALSE,
+    cafeteria BOOLEAN DEFAULT FALSE,
+    lanchonete BOOLEAN DEFAULT FALSE,
+    restaurante BOOLEAN DEFAULT TRUE
 );
 
 CREATE TABLE entregador (
-    codigo_entregador INTEGER PRIMARY KEY,
+    codigo_entregador INTEGER DEFAULT -1 PRIMARY KEY,
 
     fk_cpf_pessoa VARCHAR(11),
 
@@ -97,8 +98,8 @@ CREATE TABLE entregador (
 );
 
 CREATE TABLE telefone_estabelecimento (
-    telefone_1 INTEGER,
-    telefone_2 INTEGER,
+    telefone_1 INTEGER DEFAULT -1,
+    telefone_2 INTEGER DEFAULT -1,
 
     fk_cnpj_estabelecimento VARCHAR(14),
     
@@ -107,9 +108,9 @@ CREATE TABLE telefone_estabelecimento (
 );
 
 CREATE TABLE compra (
-    id_compra INTEGER PRIMARY KEY,
+    id_compra INTEGER DEFAULT -1 PRIMARY KEY,
 
-    forma_pagamento INTEGER, -- boolean
+    forma_pagamento BOOLEAN DEFAULT FALSE, 
 
     fk_codigo_cliente INTEGER,
     fk_cnpj_estabelecimento VARCHAR(14),
@@ -124,7 +125,7 @@ CREATE TABLE compra (
 );
 
 CREATE TABLE cardapio (
-    id_cardapio INTEGER PRIMARY KEY,
+    id_cardapio INTEGER DEFAULT -1 PRIMARY KEY,
 
     fk_cnpj_estabelecimento VARCHAR(14),
     
@@ -133,10 +134,10 @@ CREATE TABLE cardapio (
 );
 
 CREATE TABLE item (
-    id_item INTEGER PRIMARY KEY,
+    id_item INTEGER DEFAULT -1 PRIMARY KEY,
 
-    nome_item VARCHAR(20),
-    preco decimal (10,2), -- 2 digitos decimais
+    nome_item VARCHAR(20) DEFAULT '',
+    preco decimal (10,2) DEFAULT -1.00, -- 2 digitos decimais
     
     fk_id_cardapio INTEGER,
 
