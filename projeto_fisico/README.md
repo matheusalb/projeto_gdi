@@ -4,15 +4,16 @@ Implementação do projeto físico do banco de dados inspirado no ifood.
 
 ## 1. Create tables
 
-O script `create_tables.sql` cria cria o banco de dados ifood e suas tabelas (contrução do projeto físico).
+O script `create_tables.sql` cria cria o banco de dados ifood e suas tabelas (contrução do projeto físico). Ele atende as seguintes solicitação do projeto:
+
+- Valor padrão para atributo criado. **(done)**
+- Validação de dados a serem inseridos.
+- Ação de disparo referencial. **(done)**
 
 ## 2. Populate tables
 
-O script `populte_tables.sql` carrega as tuplas nas tabelas do banco de dados ifood. Ele atende as seguintes solicitação do projeto:
+O script `populte_tables.sql` carrega as tuplas nas tabelas do banco de dados ifood. Ele atende a seguinte solicitação do projeto:
 
-- Valor padrão para atributo criado.
-- Validação de dados a serem inseridos.
-- Ação de disparo referencial. **(done)**
 - Cada tabela com ao menos 3 tuplas. **(done)**
 
 ## 3. Operations

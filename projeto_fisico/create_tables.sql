@@ -5,8 +5,8 @@ USE ifood;
 
 CREATE TABLE pessoa (
     cpf VARCHAR(11) DEFAULT '' PRIMARY KEY,
-    nome VARCHAR(20) DEFAULT '',
-    idade INTEGER DEFAULT -1
+    nome VARCHAR(20) NOT NULL DEFAULT '',
+    idade INTEGER NOT NULL DEFAULT -1 CHECK (idade > 18)
 );
 
 CREATE TABLE funcionario (
@@ -60,12 +60,12 @@ CREATE TABLE designer (
 CREATE TABLE cliente (
     codigo_cliente INTEGER DEFAULT -1 PRIMARY KEY,
 
-    rua VARCHAR(20) DEFAULT '',
-    bairro VARCHAR(20) DEFAULT '',
+    rua VARCHAR(20) NOT NULL DEFAULT '',
+    bairro VARCHAR(20) NOT NULL DEFAULT '',
     complemento VARCHAR(20) DEFAULT '',
-    numero INTEGER DEFAULT -1,
+    numero INTEGER NOT NULL DEFAULT -1,
 
-    telefone INTEGER DEFAULT -1,
+    telefone INTEGER NOT NULL DEFAULT -1,
 
     fk_cpf_pessoa VARCHAR(11),
 
@@ -75,12 +75,12 @@ CREATE TABLE cliente (
 
 CREATE TABLE estabelecimento (
     cnpj VARCHAR(14) DEFAULT '' PRIMARY KEY,
-    nome VARCHAR(20) DEFAULT '',
+    nome VARCHAR(20) NOT NULL DEFAULT '',
 
-    rua VARCHAR(20) DEFAULT '',
-    bairro VARCHAR(20) DEFAULT '',
-    complemento VARCHAR(20) DEFAULT '',
-    numero INTEGER DEFAULT -1,
+    rua VARCHAR(20) NOT NULL DEFAULT '',
+    bairro VARCHAR(20) NOT NULL DEFAULT '',
+    complemento VARCHAR(20) NOT NULL DEFAULT '',
+    numero INTEGER NOT NULL DEFAULT -1,
 
     bar BOOLEAN DEFAULT FALSE,
     cafeteria BOOLEAN DEFAULT FALSE,
@@ -98,7 +98,7 @@ CREATE TABLE entregador (
 );
 
 CREATE TABLE telefone_estabelecimento (
-    telefone_1 INTEGER DEFAULT -1,
+    telefone_1 INTEGER NOT NULL DEFAULT -1,
     telefone_2 INTEGER DEFAULT -1,
 
     fk_cnpj_estabelecimento VARCHAR(14),
@@ -136,8 +136,8 @@ CREATE TABLE cardapio (
 CREATE TABLE item (
     id_item INTEGER DEFAULT -1 PRIMARY KEY,
 
-    nome_item VARCHAR(20) DEFAULT '',
-    preco decimal (10,2) DEFAULT -1.00, -- 2 digitos decimais
+    nome_item VARCHAR(20) NOT NULL DEFAULT '',
+    preco decimal (10,2) NOT NULL DEFAULT -1.00, -- 2 digitos decimais
     
     fk_id_cardapio INTEGER,
 
