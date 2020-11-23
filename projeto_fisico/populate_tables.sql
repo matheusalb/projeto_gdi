@@ -1,3 +1,5 @@
+USE ifood;
+
 INSERT INTO pessoa (cpf, nome, idade) VALUES ('66611758912','Lourdes',65);
 INSERT INTO pessoa (cpf, nome, idade) VALUES ('77040126703','Marinalva',55);
 INSERT INTO pessoa (cpf, nome, idade) VALUES ('31181980767','Marlene',54);
