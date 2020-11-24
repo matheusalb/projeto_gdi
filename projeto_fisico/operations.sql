@@ -161,9 +161,15 @@ COMMIT;
 
 -- criar uma view a partir de mais de uma tabela
 /*
-AUX_ID_COMPRA = π id_compra (σ fk_cnpj_extabelecimento= ???(compra)        (σ idade=65 (pessoa)) ⋈ cpf=fk_cpf_pessoa (funcionario) )
-PESSOA_CLIENTE = π nome ( (σ idade=65 (pessoa)) ⋈ cpf=fk_cpf_pessoa (cliente) )
-FUNC_CLENTE = PESSOA_FUNC ∪ PESSOA_CLIENTE
+ρ c (compra)
+ρ e (estabelecimento)
+ρ cp (cardapio)
+ρ i (item)
+
+EST_C = (e ⋈ cnpj=fk_cnpj_estabelecimento c)
+EST_C_CP = EST_C ⋈ fk_cnpj_estabecimento=fk_cnpj_estabelecimento cp
+CP_ITEM = EST_C_CP ⋈ id_cardapio=fk_id_cardapio i
+RESULTADO = π id_compra,cnpj,nome_item,preco (CP_ITEM)
 */
 DROP VIEW IF EXISTS view_items_comprados_estabelecimentos;
 CREATE VIEW view_items_comprados_estabelecimentos AS
